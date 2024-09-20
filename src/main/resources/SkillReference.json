@@ -1,0 +1,461 @@
+{
+  "competences": {
+    "Langages de Programmation": {
+      "Langages Backend": [
+        "Java",
+        "Python",
+        "C#",
+        "Ruby",
+        "PHP",
+        "Go",
+        "Rust",
+        "Kotlin"
+      ],
+      "Langages Frontend": [
+        "JavaScript",
+        "TypeScript",
+        "HTML/CSS",
+        "Swift (pour iOS)",
+        "Dart (pour Flutter)"
+      ],
+      "Langages de Scripting": [
+        "Bash",
+        "PowerShell",
+        "Perl",
+        "Python",
+        "Ruby"
+      ],
+      "Langages Bas Niveau": [
+        "C",
+        "C++",
+        "Assembly",
+        "Rust"
+      ]
+    },
+    "Frameworks et Bibliothèques": {
+      "Frontend": [
+        "React.js",
+        "Angular",
+        "Vue.js",
+        "Svelte",
+        "Bootstrap",
+        "jQuery"
+      ],
+      "Backend": [
+        "Spring Boot (Java)",
+        "Django (Python)",
+        "Flask (Python)",
+        "Express.js (Node.js)",
+        ".NET Core (C#)",
+        "Ruby on Rails (Ruby)"
+      ],
+      "Mobile": [
+        "React Native",
+        "Flutter",
+        "SwiftUI",
+        "Xamarin"
+      ],
+      "DevOps": [
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "Terraform",
+        "Ansible",
+        "Puppet",
+        "Chef"
+      ]
+    },
+    "Bases de Données": {
+      "Relationnelles": [
+        "MySQL",
+        "PostgreSQL",
+        "Oracle Database",
+        "Microsoft SQL Server",
+        "SQLite",
+        "PgSQL",
+        "Oracle",
+        "PL/SQL"
+      ],
+      "NoSQL": [
+        "MongoDB",
+        "Cassandra",
+        "Couchbase",
+        "Redis",
+        "DynamoDB"
+      ],
+      "Data Warehousing": [
+        "Snowflake",
+        "Amazon Redshift",
+        "Google BigQuery",
+        "Apache Hive"
+      ]
+    },
+    "Outils de Développement et CI/CD": {
+      "Contrôle de Version": [
+        "Git",
+        "SVN (Subversion)",
+        "Mercurial",
+        "GitLab",
+        "GitHub"
+      ],
+      "CI/CD": [
+        "Jenkins",
+        "GitLab CI/CD",
+        "CircleCI",
+        "Travis CI",
+        "Bamboo",
+        "TeamCity"
+      ],
+      "Gestion de Projets": [
+        "Jira",
+        "Trello",
+        "Asana",
+        "Monday.com",
+        "Slack"
+      ],
+      "Environnements de Développement": [
+        "Visual Studio Code",
+        "IntelliJ IDEA",
+        "Eclipse",
+        "PyCharm",
+        "Atom",
+        "Sublime Text"
+      ]
+    },
+    "Compétences en Cloud Computing": {
+      "Fournisseurs Cloud": [
+        "Amazon Web Services (AWS)",
+        "Microsoft Azure",
+        "Google Cloud Platform (GCP)",
+        "IBM Cloud",
+        "Oracle Cloud"
+      ],
+      "Outils de Gestion Cloud": [
+        "AWS Lambda",
+        "Azure Functions",
+        "Google Cloud Functions",
+        "Terraform",
+        "CloudFormation",
+        "Azure DevOps"
+      ],
+      "Services Cloud": [
+        "Kubernetes Engine (GKE)",
+        "Elastic Beanstalk (AWS)",
+        "EC2 (AWS)",
+        "S3 (AWS)",
+        "Azure App Services"
+      ]
+    },
+    "Sécurité Informatique": {
+      "Sécurité Réseau": [
+        "Firewalls (e.g., Palo Alto, Fortinet)",
+        "VPNs",
+        "IDS/IPS (Intrusion Detection/Prevention Systems)",
+        "SIEM (e.g., Splunk, ELK Stack)"
+      ],
+      "Sécurité Applicative": [
+        "OWASP Top 10",
+        "Penetration Testing",
+        "Secure Coding Practices",
+        "SSL/TLS",
+        "Application Security Testing (e.g., Veracode, Checkmarx)"
+      ],
+      "Cryptographie": [
+        "SSL/TLS",
+        "AES/RSA Encryption",
+        "Public Key Infrastructure (PKI)"
+      ],
+      "Gestion des Identités et des Accès": [
+        "Active Directory",
+        "LDAP",
+        "OAuth2",
+        "SAML",
+        "Single Sign-On (SSO)"
+      ]
+    },
+    "Outils de Gestion des Containers et Orchestration": {
+      "Containers": [
+        "Docker",
+        "Podman",
+        "LXC/LXD"
+      ],
+      "Orchestration": [
+        "Kubernetes",
+        "Docker Swarm",
+        "OpenShift",
+        "Mesos"
+      ],
+      "Registry": [
+        "Docker Hub",
+        "AWS ECR (Elastic Container Registry)",
+        "Google Container Registry (GCR)"
+      ]
+    },
+    "Outils de Monitoring et de Logging": {
+      "Monitoring": [
+        "Prometheus",
+        "Grafana",
+        "Nagios",
+        "Zabbix",
+        "Datadog"
+      ],
+      "Logging": [
+        "ELK Stack (Elasticsearch, Logstash, Kibana)",
+        "Splunk",
+        "Fluentd",
+        "Graylog"
+      ]
+    },
+    "Systèmes d’Exploitation": {
+      "Linux/Unix": [
+        "Ubuntu",
+        "CentOS",
+        "Debian",
+        "Red Hat",
+        "macOS"
+      ],
+      "Windows": [
+        "Windows Server",
+        "Windows 10/11",
+        "PowerShell scripting"
+      ],
+      "Virtualisation": [
+        "VMware",
+        "VirtualBox",
+        "Hyper-V",
+        "KVM"
+      ]
+    },
+    "Méthodologies et Bonnes Pratiques": {
+      "Méthodologies de Développement": [
+        "Agile/Scrum",
+        "Kanban",
+        "Waterfall",
+        "Test-Driven Development (TDD)",
+        " SAFe"
+      ],
+      "Design Patterns": [
+        "Singleton",
+        "Factory",
+        "Observer",
+        "MVC/MVVM"
+      ],
+      "Principes de Conception": [
+        "SOLID",
+        "DRY (Don’t Repeat Yourself)",
+        "KISS (Keep It Simple, Stupid)",
+        "YAGNI (You Aren’t Gonna Need It)"
+      ]
+    },
+    "Compétences en Intelligence Artificielle et Data Science": {
+      "Langages et Outils": [
+        "Python (Pandas, NumPy, Scikit-learn)",
+        "R",
+        "MATLAB",
+        "TensorFlow",
+        "PyTorch"
+      ],
+      "Machine Learning": [
+        "Supervised Learning (e.g., SVM, Random Forest)",
+        "Unsupervised Learning (e.g., K-Means, PCA)",
+        "Reinforcement Learning"
+      ],
+      "Data Science": [
+        "Data Cleaning",
+        "Data Visualization (e.g., Matplotlib, Seaborn)",
+        "SQL/NoSQL for Data Management"
+      ],
+      "Big Data": [
+        "Apache Hadoop",
+        "Apache Spark",
+        "Apache Kafka",
+        "Hive",
+        "Pig"
+      ]
+    },
+    "Compétences en Développement Web": {
+      "Frontend": [
+        "HTML",
+        "CSS",
+        "JavaScript/ES6+",
+        "Responsive Design",
+        "SASS/LESS",
+        "WebAssembly"
+      ],
+      "Backend": [
+        "RESTful API Development",
+        "GraphQL",
+        "SOAP",
+        "Microservices"
+      ],
+      "Web Servers": [
+        "Apache",
+        "Nginx",
+        "IIS"
+      ]
+    },
+    "Outils de Collaboration et Communication": {
+      "Version Control": [
+        "Git",
+        "GitHub/GitLab/Bitbucket"
+      ],
+      "Collaboration": [
+        "Slack",
+        "Microsoft Teams",
+        "Zoom"
+      ],
+      "Documentation": [
+        "Confluence",
+        "Markdown",
+        "LaTeX",
+        "JIRA (pour la gestion des tâches)"
+      ]
+    },
+    "Compétences Transversales": {
+      "Soft Skills": [
+        "Communication",
+        "Gestion de projet",
+        "Leadership",
+        "Travail en équipe",
+        "Résolution de problèmes"
+      ],
+      "Langues": [
+        "Anglais",
+        "Français",
+        "Autres langues pertinentes en fonction du contexte géographique"
+      ]
+    },
+    "Autres Compétences Techniques": {
+      "IoT (Internet of Things)": [
+        "Arduino",
+        "Raspberry Pi",
+        "MQTT",
+        "Zigbee"
+      ],
+      "Blockchain": [
+        "Ethereum",
+        "Solidity",
+        "Hyperledger",
+        "Smart Contracts"
+      ],
+      "Réalité Virtuelle et Augmentée (VR/AR)": [
+        "Unity 3D",
+        "Unreal Engine",
+        "3D Modeling (Blender, Maya)"
+      ]
+    },
+    "Compétences en Gestion des Processus Métiers et CRM": {
+      "Salesforce Administration et Personnalisation": [
+        "Sales Cloud Lightning",
+        "Sales Cloud Classic",
+        "Inbox",
+        "Mobile Case Management",
+        "Pardot",
+        "Landing Pages",
+        "Campaigns",
+        "Data Loader",
+        "Custom Objects & Fields",
+        "Record Type",
+        "Page Layout",
+        "App Home Page"
+      ],
+      "Automatisation des Processus": [
+        "Flows",
+        "Workflow",
+        "Process Builder",
+        "Validation Rules",
+        "Formules",
+        "Lead Automation & Queues",
+        "Approval Processes"
+      ],
+      "Rapports et Analyses": [
+        "Reports",
+        "Dashboards",
+        "Einstein Analytics",
+        "Tableau",
+        "Filter & Cross Filter",
+        "Groups",
+        "Custom Summary Formulas"
+      ],
+      "Sécurité et Gestion des Utilisateurs": [
+        "Roles",
+        "Hierarchies",
+        "Permission Sets",
+        "User Authentication",
+        "Object Level Security",
+        "Record Level Security",
+        "Password Policies"
+      ]
+    },
+    "Marketing Digital et Outils d'Analyse": {
+      "Outils de Marketing et CRM": [
+        "Mailchimp",
+        "Veeva"
+      ],
+      "Outils d'Analyse et Suivi": [
+        "Google Analytics"
+      ],
+      "E-commerce et Gestion de Contenu": [
+        "Magento",
+        "Texaswin"
+      ]
+    },
+    "Outils de Productivité": {
+      "Suite Microsoft Office": [
+        "Excel",
+        "Power Point",
+        "Word"
+      ]
+    },
+    "Compétences Salesforce et Technologies Associées": {
+      "Clouds Salesforce": [
+        "Sales Cloud",
+        "Service Cloud",
+        "Community Cloud",
+        "Marketing Cloud",
+        "Pardot"
+      ],
+      "Administration Salesforce": [
+        "Administration Salesforce",
+        "Sécurité Salesforce",
+        "Intégration Salesforce",
+        "Single Sign-On (SSO)"
+      ],
+      "Intégration et Middleware": [
+        "Mulesoft",
+        "AnyPoint"
+      ],
+      "Développement Salesforce": [
+        "Apex",
+        "Visualforce",
+        "Aura",
+        "Lightning Web Components (LWC)"
+      ],
+      "Architectures et Web Services": [
+        "Architectures Web Services"
+      ],
+      "Outils DevOps pour Salesforce": [
+        "Copado"
+      ]
+    },
+    "Outils de Gestion d'Entreprise et Collaboration": {
+      "Systèmes de Gestion d'Entreprise (ERP/CRM/ECM)": [
+        "SAP FI",
+        "SAP PSCD",
+        "SAP CRM",
+        "Odoo ERP",
+        "Alfresco ECM"
+      ],
+      "Gestion des Identités et Accès": [
+        "Azure AD"
+      ]
+    },
+    "Outils et Techniques de Modélisation et Conception": {
+      "Modélisation et Conception": [
+        "UML",
+        "BPMN",
+        "Enterprise Architect"
+      ]
+    }
+  }
+}
