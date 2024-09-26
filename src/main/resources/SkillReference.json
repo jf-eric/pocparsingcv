@@ -1,5 +1,8 @@
 {
   "competences": {
+    "Donnees personnelles": {},
+    "Formation":{},
+    "Experiences professionnelles":{},
     "Langages de Programmation": {
       "Langages Backend": [
         "Java",

@@ -4,9 +4,13 @@ import com.citech_lab.pocparsingcv.extractor.CVTextExtractor;
 import com.citech_lab.pocparsingcv.repository.SkillRepositoryLoader;
 
 import com.citech_lab.pocparsingcv.structure.SkillStructureBuilder;
+import opennlp.tools.namefind.NameFinderME;
+import opennlp.tools.namefind.TokenNameFinderModel;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,11 +29,13 @@ public class CVProcessingServiceImpl implements CVProcessingService {
 
     @Override
     public Map<String, Map<String, List<String>>> processCV(MultipartFile cv) throws Exception {
+
         // Obtenir le texte extrait du fichier
         String fileContent = extractTextFromCVType(cv);
 
-        extractProfessionalExperience(fileContent);
-        extractContactInfo(fileContent);
+        //extractProfessionalExperience(fileContent);
+        Map<String, List<String>> contactInfo = CVContactInfoDetectorService.detectContactInfo(fileContent);
+        Map<String, List<String>> professionalExperience = CVProfessionalExperienceService.detectProfessionalExperience(fileContent);
 
 
         // Charger le référentiel des compétences
@@ -57,6 +63,33 @@ public class CVProcessingServiceImpl implements CVProcessingService {
             }
         }
 
+        // Chargement du modèle NER depuis le dossier resources
+        InputStream modelIn = CVProcessingServiceImpl.class.getResourceAsStream("/en-ner-organization.bin");
+
+        if (modelIn == null) {
+            throw new FileNotFoundException("Le modèle NER est introuvable.");
+        }
+
+        // Création du modèle NER à partir du fichier
+        TokenNameFinderModel model = new TokenNameFinderModel(modelIn);
+        NameFinderME nameFinder = new NameFinderME(model);
+
+        // Exemple de texte à analyser (avec et sans tirets)
+        // String text = " 2018-2020 Master in Software Engineering Université de Madagascar ";
+        //String textWithHyphens = "Master in Software Engineering - Organisation Mondiale de la Santé - 2018-2020";
+
+        // Analyser le texte sans tirets
+        Map<String, List<String>> results = CVFormationDetectorService.analyzeTextFormation(nameFinder, fileContent);
+
+        // Analyser le texte avec tirets
+        //results.putAll(CVFormationDetectorService.analyzeTextFormation(nameFinder, textWithHyphens));
+        // Afficher les résultats
+        System.out.println("Résultats de la catégorie 'formation': " + results);
+        // Fermeture du flux de modèle
+        modelIn.close();
+        foundSkills.get("Formation").putAll(results);
+        foundSkills.get("Donnees personnelles").putAll(contactInfo);
+        foundSkills.get("Experiences professionnelles").putAll(professionalExperience);
         // Retourner la structure des compétences trouvées regroupées par catégories
         return foundSkills;
     }
@@ -129,12 +162,25 @@ public class CVProcessingServiceImpl implements CVProcessingService {
         }
     }
 
-    private void extractContactInfo(String cvText) {
+
+
+    private Map<String, List<String>> extractContactInfoTest(String cvText) {
+        Map<String, List<String>> contactInfo = new HashMap<>();
+
+        // Initialiser les listes pour stocker les résultats
+        contactInfo.put("Email", new ArrayList<>());
+        contactInfo.put("Phone", new ArrayList<>());
+        contactInfo.put("Name", new ArrayList<>());
+
+        System.out.println("<---------------------------------------------------------->");
+
         // Détection de l'email
         Pattern emailPattern = Pattern.compile("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}");
         Matcher emailMatcher = emailPattern.matcher(cvText);
         if (emailMatcher.find()) {
-            System.out.println("Email Found: " + emailMatcher.group());
+            String email = emailMatcher.group();
+            System.out.println("Email Found: " + email);
+            contactInfo.get("Email").add(email);
         } else {
             System.out.println("No email found.");
         }
@@ -143,7 +189,9 @@ public class CVProcessingServiceImpl implements CVProcessingService {
         Pattern phonePattern = Pattern.compile("(0[1-9][0-9]{8}|\\+?[0-9]{1,3}[ -]?\\(?[0-9]{1,4}\\)?[ -]?[0-9]{1,4}[ -]?[0-9]{1,9})");
         Matcher phoneMatcher = phonePattern.matcher(cvText);
         if (phoneMatcher.find()) {
-            System.out.println("Phone Number Found: " + phoneMatcher.group());
+            String phone = phoneMatcher.group();
+            System.out.println("Phone Number Found: " + phone);
+            contactInfo.get("Phone").add(phone);
         } else {
             System.out.println("No phone number found.");
         }
@@ -152,10 +200,15 @@ public class CVProcessingServiceImpl implements CVProcessingService {
         Pattern namePattern = Pattern.compile("^[A-Z][a-z]+\\s[A-Z][a-z]+", Pattern.MULTILINE);
         Matcher nameMatcher = namePattern.matcher(cvText);
         if (nameMatcher.find()) {
-            System.out.println("Name Found: " + nameMatcher.group());
+            String name = nameMatcher.group();
+            System.out.println("Name Found: " + name);
+            contactInfo.get("Name").add(name);
         } else {
             System.out.println("No name found.");
         }
+
+        System.out.println("<---------------------------------------------------------->");
+        return contactInfo;
     }
 
 
