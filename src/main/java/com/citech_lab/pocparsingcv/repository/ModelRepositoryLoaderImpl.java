@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class SkillRepositoryLoaderImpl implements SkillRepositoryLoader {
-    private static final String SKILLS_JSON_FILE = "SkillReference.json";
+public class ModelRepositoryLoaderImpl implements ModelRepositoryLoader {
+    private static final String MODEL_REFERENCE_JSON_FILE = "ModelReference.json";
 
     @Override
-    public Map<String, Map<String, List<String>>> loadSkills() throws IOException {
+    public Map<String, Map<String, List<String>>> loadModel() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Resource resource = new ClassPathResource(SKILLS_JSON_FILE);
-        SkillsRepository repository = mapper.readValue(resource.getFile(), SkillsRepository.class);
+        Resource resource = new ClassPathResource(MODEL_REFERENCE_JSON_FILE);
+        ModelRepository repository = mapper.readValue(resource.getFile(), ModelRepository.class);
         return repository.getCompetences();
     }
 }

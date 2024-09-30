@@ -6,6 +6,10 @@ import java.util.regex.*;
 public class CVProfessionalExperienceService {
 
 
+    private static final String DATES = "Dates";
+    private static final String DESCRIPTIONS = "Descriptions";
+    private static final String TOUS_LES_TEXTES_PERTINENTS = "Tous les textes pertinents";
+
     public static Map<String, List<String>> detectProfessionalExperience(String cvText) {
         Map<String, List<String>> experienceInfo = new HashMap<>();
 
@@ -28,7 +32,7 @@ public class CVProfessionalExperienceService {
             while (dateMatcher.find()) {
                 employmentDates.add(dateMatcher.group().trim());
             }
-            experienceInfo.put("Dates", employmentDates);
+            experienceInfo.put(DATES, employmentDates);
 
             // Extraction des descriptions de poste
             Pattern descriptionPattern = Pattern.compile("(?<=Achievement :|Role :|Mission :|Réalisation :|Rôle :)[\\s\\S]*?(?=Environment :|Environnement :|$)", Pattern.DOTALL);
@@ -38,12 +42,12 @@ public class CVProfessionalExperienceService {
             while (descriptionMatcher.find()) {
                 jobDescriptions.add(descriptionMatcher.group().trim());
             }
-            experienceInfo.put("Descriptions", jobDescriptions);
+            experienceInfo.put(DESCRIPTIONS, jobDescriptions);
 
         } else {
             // Si aucune section d'expérience professionnelle n'est trouvée, récupérer tout le texte pertinent
             List<String> allRelevantText = extractAllRelevantText(cvText);
-            experienceInfo.put("Tous les textes pertinents", allRelevantText);
+            experienceInfo.put(TOUS_LES_TEXTES_PERTINENTS, allRelevantText);
         }
 
         return experienceInfo;
@@ -90,8 +94,5 @@ public class CVProfessionalExperienceService {
         return relevantText;
 
 
-        // Exemple d'utilisation
     }
-
-
 }

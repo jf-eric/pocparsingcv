@@ -11,6 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CVFormationDetectorService {
+    public static final String INSTITUTION = "Institution";
+    public static final String DATE = "Date";
+    public static final String DIPLOME = "Diplôme";
+
 
     public static Map<String, List<String>> analyzeTextFormation(NameFinderME nameFinder, String text) {
         // Nettoyage du texte pour enlever les nouvelles lignes et les espaces superflus
@@ -19,9 +23,9 @@ public class CVFormationDetectorService {
 
         // Map pour stocker les résultats
         Map<String, List<String>> results = new HashMap<>();
-        results.put("Institution", new ArrayList<>());
-        results.put("Date", new ArrayList<>());
-        results.put("Diplôme", new ArrayList<>());
+        results.put(INSTITUTION, new ArrayList<>());
+        results.put(DATE, new ArrayList<>());
+        results.put(DIPLOME, new ArrayList<>());
 
         // Division du texte en tokens (mots)
         String[] tokens = text.split(" ");
@@ -42,16 +46,14 @@ public class CVFormationDetectorService {
         Pattern institutionPattern = Pattern.compile("(Université|Organisation|Company|Institute|Corporation|University)\\s+[A-Za-z\\s]+");
         Matcher institutionMatcher = institutionPattern.matcher(text);
         while (institutionMatcher.find()) {
-            // Ajouter l'institution trouvée à la map
-            results.get("Institution").add(institutionMatcher.group().trim());
+            results.get(INSTITUTION).add(institutionMatcher.group().trim());
         }
 
         // Regex pour détecter les dates
         Pattern datePattern = Pattern.compile("\\d{4}-\\d{4}");
         Matcher dateMatcher = datePattern.matcher(text);
         while (dateMatcher.find()) {
-            // Ajouter la date trouvée à la map
-            results.get("Date").add(dateMatcher.group());
+            results.get(DATE).add(dateMatcher.group());
         }
     }
 
@@ -62,7 +64,7 @@ public class CVFormationDetectorService {
         Matcher diplomaMatcher = diplomaPattern.matcher(text);
         while (diplomaMatcher.find()) {
             // Ajouter le diplôme trouvé à la map
-            results.get("Diplôme").add(diplomaMatcher.group().trim());
+            results.get(DIPLOME).add(diplomaMatcher.group().trim());
         }
     }
 }

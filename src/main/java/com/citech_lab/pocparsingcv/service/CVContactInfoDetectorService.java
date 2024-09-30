@@ -10,14 +10,18 @@ import java.util.regex.Pattern;
 public class CVContactInfoDetectorService {
 
 
+    private static final String NOM = "Nom";
+    private static final String PHONE = "Phone";
+    private static final String EMAIL = "Email";
+
     public static Map<String, List<String>> detectContactInfo(String cvText) {
-        // Crée une Map pour stocker les résultats par type (Email, Phone, Name)
+        // Map pour stocker les résultats par type (Email, Phone, Name)
         Map<String, List<String>> contactInfo = new HashMap<>();
 
-        // Initialiser les listes pour chaque type d'information
-        contactInfo.put("Email", new ArrayList<>());
-        contactInfo.put("Phone", new ArrayList<>());
-        contactInfo.put("Name", new ArrayList<>());
+        // listes pour chaque type d'information
+        contactInfo.put(EMAIL, new ArrayList<>());
+        contactInfo.put(PHONE, new ArrayList<>());
+        contactInfo.put(NOM, new ArrayList<>());
 
         System.out.println("<---------------------------------------------------------->");
 
@@ -31,7 +35,7 @@ public class CVContactInfoDetectorService {
         if (emailMatcher.find()) {
             String email = emailMatcher.group();
             System.out.println("Email Found: " + email);
-            contactInfo.get("Email").add(email); // Ajoute l'email à la liste
+            contactInfo.get(EMAIL).add(email); // Ajoute l'email à la liste
         } else {
             System.out.println("No email found.");
         }
@@ -40,7 +44,7 @@ public class CVContactInfoDetectorService {
         // Regex pour capturer les numéros de téléphone :
         // - 0[1-9][0-9]{8} : un numéro français classique (10 chiffres)
         // - |\\+?[0-9]{1,3} : ou un format international avec indicatif (ex: +33)
-        // - \\(?[0-9]{1,4}\\)? : éventuellement un code de zone (1 à 4 chiffres, entre parenthèses ou non)
+        // - \\(?[0-9]{1,4}\\)? : un code de zone (1 à 4 chiffres, entre parenthèses ou non)
         // - [ -]? : un espace ou un tiret optionnel
         // - [0-9]{1,4} : 1 à 4 chiffres
         // - [ -]? : un espace ou un tiret optionnel
@@ -50,7 +54,7 @@ public class CVContactInfoDetectorService {
         if (phoneMatcher.find()) {
             String phone = phoneMatcher.group();
             System.out.println("Phone Number Found: " + phone);
-            contactInfo.get("Phone").add(phone); // Ajoute le numéro de téléphone à la liste
+            contactInfo.get(PHONE).add(phone); // Ajoute le numéro de téléphone à la liste
         } else {
             System.out.println("No phone number found.");
         }
@@ -65,7 +69,7 @@ public class CVContactInfoDetectorService {
         if (nameMatcher.find()) {
             String name = nameMatcher.group();
             System.out.println("Name Found: " + name);
-            contactInfo.get("Name").add(name); // Ajoute le nom à la liste
+            contactInfo.get(NOM).add(name); // Ajoute le nom à la liste
         } else {
             System.out.println("No name found.");
         }
@@ -73,8 +77,6 @@ public class CVContactInfoDetectorService {
         System.out.println("<---------------------------------------------------------->");
         return contactInfo; // Retourne la Map avec les résultats
     }
-
-
 }
 
 

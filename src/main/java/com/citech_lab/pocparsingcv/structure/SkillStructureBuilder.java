@@ -14,7 +14,8 @@ public class SkillStructureBuilder {
             String category = mainCategory.getKey();
             Map<String, List<String>> subCategories = mainCategory.getValue();
 
-            Map<String, List<String>> emptySubCategories = new HashMap<>();            for (String subCategory : subCategories.keySet()) {
+            Map<String, List<String>> emptySubCategories = new HashMap<>();
+            for (String subCategory : subCategories.keySet()) {
                 emptySubCategories.put(subCategory, new ArrayList<>());
             }
 
